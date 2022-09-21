@@ -7,22 +7,23 @@ import os
 import random
 
 today = datetime.now()
-start_date = os.environ['START_DATE']
-city = os.environ['CITY']
-birthday = os.environ['BIRTHDAY']
 
-app_id = os.environ["APP_ID"]
-app_secret = os.environ["APP_SECRET"]
-
-user_id = os.environ["USER_ID"]
-template_id = os.environ["TEMPLATE_ID"]
+start_date = "2021-2-14"  
+city = "101281001"         
+app_id = "wx98cc4c3242d935cc" 
+app_secret = "7384de710f9c0ba63b89c27aa334193d" 
+user_id = "oPjaC6pn0u-sJVAZGYopI-rgxXtc"        
+template_id = "	5RE8DvgEVWTNQaha2SaXacfXvX-w4zScQ4RNxTkEGm82" 
 
 
 def get_weather():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+  # url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+  url = "http://t.weather.sojson.com/api/weather/city/" + city
   res = requests.get(url).json()
-  weather = res['data']['list'][0]
-  return weather['weather'], math.floor(weather['temp'])
+  # weather = res['data']['list'][0]
+  weather = res['data']
+  return weather['quality'], weather['wendu']
+  # return weather['quality'], math.floor(weather['wendu'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")

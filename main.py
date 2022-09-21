@@ -8,7 +8,7 @@ import random
 
 today = datetime.now()
 
-love_days = "2021-2-14"  
+start_date = "2021-2-14"  
 city = "101281001"         
 app_id = "wx98cc4c3242d935cc" 
 app_secret = "7384de710f9c0ba63b89c27aa334193d" 
